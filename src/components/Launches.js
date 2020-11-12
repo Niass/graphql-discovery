@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 
-const EXCHANGE_RATES = gql`
+const SPACEX_LAUNCHES = gql`
   query GetFiveLauches {
     launches(limit: 5) {
       launch_date_utc
@@ -20,7 +20,7 @@ const EXCHANGE_RATES = gql`
 `;
 
 export default function ExchangeRates() {
-  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  const { loading, error, data } = useQuery(SPACEX_LAUNCHES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
